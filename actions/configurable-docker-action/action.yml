@@ -11,6 +11,6 @@ outputs:
     description: 'The time we greeted you'
 runs:
   using: 'docker'
-  image: '${{ inputs.docker-image }}'
+  image: ${{ inputs.docker-image }}
   args:
     - 'curl https://github.com/SAP/jenkins-library/raw/piper-binary/piper && piper version'

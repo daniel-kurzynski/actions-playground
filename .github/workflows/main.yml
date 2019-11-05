@@ -10,11 +10,11 @@ jobs:
       uses: daniel-kurzynski/actions-playground/actions/docker-action@master
       with:
         who-to-greet: 'Mona the Octocat'
-    - name: Run Piper Version with Docker
-      id: piper-docker
-      uses: daniel-kurzynski/actions-playground/actions/configurable-docker-action@master
+    - name: Run Piper Version with JS
+      id: piper-docker-js
+      uses: daniel-kurzynski/actions-playground/actions/js-action@master
       with:
-        docker-image: 'ubuntu'
+        who-to-greet: 'Mona the Octocat'
     # Use the output from the `hello` step
     - name: Get the output time
       run: echo "The time was ${{ steps.hello.outputs.time }}"
