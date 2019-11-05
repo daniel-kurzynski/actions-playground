@@ -11,10 +11,10 @@ jobs:
       with:
         who-to-greet: 'Mona the Octocat'
     - name: Run Piper Version with JS
-      id: piper-docker-js
-      uses: daniel-kurzynski/actions-playground/actions/js-action@master
+      id: piper-js
+      uses: daniel-kurzynski/actions-playground/actions/piper-js-action@master
       with:
-        who-to-greet: 'Mona the Octocat'
+        piper-command: 'version'
     # Use the output from the `hello` step
     - name: Get the output time
       run: echo "The time was ${{ steps.hello.outputs.time }}"
