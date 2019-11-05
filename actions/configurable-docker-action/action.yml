@@ -1,0 +1,16 @@
+# action.yml
+name: 'Configurable Docker Image'
+description: 'Greet someone and record the time'
+inputs:
+  docker-image:  # id of input
+    description: 'Name of docker image'
+    required: true
+    default: 'alpine'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: ${{ inputs.docker-image }}
+  args:
+    - 'curl https://github.com/SAP/jenkins-library/raw/piper-binary/piper && piper version'
