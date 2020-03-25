@@ -9,6 +9,7 @@ jobs:
     name: Trigger Integration Tests
     
     runs-on: ubuntu-latest
+    if: github.event.comment.body == 'Test'
     
     steps:
       - name: Dump GitHub context
