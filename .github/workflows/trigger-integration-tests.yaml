@@ -12,6 +12,8 @@ jobs:
     if: github.event.comment.body == '/it' && (github.event.comment.author_association == 'COLLABORATOR' || github.event.comment.author_association == 'OWNER')
     
     steps:
+      - name: print env
+        run: printenv
       - name: checkout
         uses: actions/checkout@v2
       - name: push it branch
