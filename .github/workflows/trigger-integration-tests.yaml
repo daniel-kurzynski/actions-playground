@@ -14,13 +14,9 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-        with:
-          ref: '+refs/pull/$PR/head'
       - name: change branch
-        run: git checkout origin/pr/1
+        run: git fetch origin +refs/pull/$PR/merge && git checkout FETCH_HEAD
       - name: push it branch
-        run: git status
-      - name: git checkout
-        run: cat "$GITHUB_EVENT_PATH"
+        run: git push origin it/1
       
   
