@@ -5,7 +5,7 @@ on:
     types: [created]
 
 jobs:
-  build:
+  build: 
     name: Trigger Integration Tests
     
     runs-on: ubuntu-latest
@@ -14,8 +14,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-        with:
-          branch: origin/pr/1
+      - name: change branch
+        run: gt checkout origin/pr/1
       - name: push it branch
         run: git status
       - name: git checkout
