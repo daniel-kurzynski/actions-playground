@@ -17,10 +17,10 @@ jobs:
         run: echo "::set-output name=pullrequest::$(curl ${{ github.event.comment.issue_url }} | jq '.pull_request.url' | sed 's/\"//g')"
       - name: get branch name
         id: branchname
-        run: echo "::set-output name=branchname::$curl https://api.github.com/repos/daniel-kurzynski/actions-playground/pulls/1 | jq '.head.ref' | sed 's/\"//g')"
+        run: echo "::set-output name=branchname::$(curl https://api.github.com/repos/daniel-kurzynski/actions-playground/pulls/1 | jq '.head.ref' | sed 's/\"//g')"
       - name: pull request number
         id: prnumber
-        run: echo "::set-output name=prnumber::$curl https://api.github.com/repos/daniel-kurzynski/actions-playground/pulls/1 | jq '.number' | sed 's/\"//g')"
+        run: echo "::set-output name=prnumber::$(curl https://api.github.com/repos/daniel-kurzynski/actions-playground/pulls/1 | jq '.number' | sed 's/\"//g')"
       - name: checkout
         uses: actions/checkout@v2
         with:
