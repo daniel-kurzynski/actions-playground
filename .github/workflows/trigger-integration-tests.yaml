@@ -13,7 +13,7 @@ jobs:
     
     steps:
       - name: print env
-        run: env
+        run: echo $GITHUB_EVENT_PATH
       - name: checkout
         uses: actions/checkout@v2
       - name: push it branch
