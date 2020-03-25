@@ -15,7 +15,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: change branch
-        run: git fetch origin +refs/pull/1/merge && git checkout FETCH_HEAD
+        run: git fetch origin +refs/pull/1/head && git checkout FETCH_HEAD -b it/1
       - name: push it branch
         run: git push origin it/1
       
