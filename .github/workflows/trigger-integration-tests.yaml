@@ -15,7 +15,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
         with:
-          ref: 'origin/pr/1'
+          ref: '+refs/pull/$PR/head'
       - name: change branch
         run: git checkout origin/pr/1
       - name: push it branch
