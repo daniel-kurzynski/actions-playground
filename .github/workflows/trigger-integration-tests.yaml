@@ -12,13 +12,13 @@ jobs:
     if: github.event.comment.body == '/it' && (github.event.comment.author_association == 'COLLABORATOR' || github.event.comment.author_association == 'OWNER')
     
     steps:
-      - name: printenv
-        run: echo $GITHUB_EVENT_PATH
       - name: checkout
         uses: actions/checkout@v2
+        with:
+          branch: origin/pr/1
       - name: push it branch
         run: git status
-      - name: push it branch
+      - name: git checkout
         run: cat "$GITHUB_EVENT_PATH"
       
   
