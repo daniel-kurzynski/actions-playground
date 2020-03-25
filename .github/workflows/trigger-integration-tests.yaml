@@ -19,6 +19,6 @@ jobs:
       - name: push it branch
         run: git status
       - name: push it branch
-        run: jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH"
+        run: cat "$GITHUB_EVENT_PATH"
       
   
