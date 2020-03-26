@@ -15,18 +15,15 @@ jobs:
       - name: get pull request url
         id: pullrequest
         run: echo "::set-output name=pullrequest::$(curl ${{ github.event.comment.issue_url }} | jq '.pull_request.url' | sed 's/\"//g')"
-      - name: pull request details
-        id: pullrequestdetails
-        run: echo "::set-output name=pullrequestdetails::$(curl ${{ steps.pullrequest.outputs.pullrequest }})"
       - name: get branch name
         id: branchname
-        run: echo "::set-output name=branchname::$(echo ${{ steps.pullrequestdetails.outputs.pullrequestdetails }} | jq '.head.ref' | sed 's/\"//g')"
+        run: echo "::set-output name=branchname::$(curl ${{ steps.pullrequest.outputs.pullrequest }} | jq '.head.ref' | sed 's/\"//g')"
       - name: get repository
         id: repository
-        run: echo "::set-output name=repository::$(echo ${{ steps.pullrequestdetails.outputs.pullrequestdetails }} | jq '.head.repo.full_name' | sed 's/\"//g')"
+        run: echo "::set-output name=repository::$(curl ${{ steps.pullrequest.outputs.pullrequest }} | jq '.head.repo.full_name' | sed 's/\"//g')"
       - name: pull request number
         id: prnumber
-        run: echo "::set-output name=prnumber::$(echo ${{ steps.pullrequestdetails.outputs.pullrequestdetails }} | jq '.number' | sed 's/\"//g')"
+        run: echo "::set-output name=prnumber::$(curl ${{ steps.pullrequest.outputs.pullrequest }} | jq '.number' | sed 's/\"//g')"
       - name: checkout
         uses: actions/checkout@v2
         with:
