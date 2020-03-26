@@ -26,9 +26,8 @@ jobs:
         run: echo "::set-output name=prnumber::$(curl ${{ steps.pullrequest.outputs.pullrequest }} | jq '.number' | sed 's/\"//g')"
       - name: checkout
         uses: actions/checkout@v2
-      - name: change branch
-        run: git remote add pr https://github.com/${{ steps.repository.outputs.repository }} && git fetch pr && git checkout -b it/${{ steps.prnumber.outputs.prnumber }} pr/${{ steps.branchname.outputs.branchname }}
-      - name: push it branch
-        run: git push origin it/${{ steps.prnumber.outputs.prnumber }}
+        with:
+          repository: ${{ steps.repository.outputs.repository }}
+          ref: ${{ steps.branchname.outputs.branchname }}
       
   
