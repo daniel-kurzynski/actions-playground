@@ -29,9 +29,9 @@ jobs:
         with:
           repository: ${{ steps.repository.outputs.repository }}
           ref: ${{ steps.branchname.outputs.branchname }}
-#       - name: change branch
-#         run: git checkout -b it/${{ steps.prnumber.outputs.prnumber }}
-#       - name: push it branch
-#         run: git push origin it/${{ steps.prnumber.outputs.prnumber }}
+      - name: change branch
+        run: git checkout -b it/${{ steps.prnumber.outputs.prnumber }}
+      - name: push it branch
+        run: git push ${{ github.repository }} it/${{ steps.prnumber.outputs.prnumber }}
       
   
