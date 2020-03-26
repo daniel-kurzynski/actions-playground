@@ -29,6 +29,6 @@ jobs:
       - name: change branch
         run: git remote add pr https://github.com/${{ steps.repository.outputs.repository }} && git fetch pr && git checkout -b it/${{ steps.prnumber.outputs.prnumber }} pr/${{ steps.branchname.outputs.branchname }}
       - name: push it branch
-        run: git push git@github.com:${{ github.repository }}.git it/${{ steps.prnumber.outputs.prnumber }}
+        run: git push origin it/${{ steps.prnumber.outputs.prnumber }}
       
   
