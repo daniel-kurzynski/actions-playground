@@ -29,5 +29,7 @@ jobs:
         with:
           repository: ${{ steps.repository.outputs.repository }}
           ref: ${{ steps.branchname.outputs.branchname }}
+      - name: Load Screcet
+        run: echo ${{ secrets.TEST_SECRET }} && git status
       
   
